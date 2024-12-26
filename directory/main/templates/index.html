@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Справочник</title>
+{% endblock %}
+
+{% block content %}
+<h1>Добро пожаловать в справочник</h1>
+<div class="button-container">
+    <a href="{% url 'main' %}" class="button">Справочник</a>
+    <a href="{% url 'fam' %}" class="button">Фамилии</a>
+    <a href="{% url 'name' %}" class="button">Имена</a>
+    <a href="{% url 'otc' %}" class="button">Отчества</a>
+    <a href="{% url 'street' %}" class="button">Улицы</a>
+</div>
+{% endblock %}

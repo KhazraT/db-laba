@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Имена</title>
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}" class="fixed-button">Вернуться назад</a>
+<h1>Имена</h1>
+<div class="form-container">
+    <form method="get">
+        <input type="text" name="name" maxlength="20" required placeholder="Введите имя">
+        <input type="submit" name="action" value="Добавить">
+        <input type="submit" name="action" value="Удалить">
+        <input type="submit" name="action" value="Найти">
+    </form>
+    <form method="get">
+        <input type="submit" name="action" value="Показать все записи">
+    </form>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>n_num</th>
+            <th>nam_val</th>
+        </tr>
+    </thead>
+    {% if rows %}
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    {% endif %}
+</table>
+{% if not rows %}
+    <h2>Таблица пока пустая :(</h2>
+{% endif %}
+{% endblock %}
